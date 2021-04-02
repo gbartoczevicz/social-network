@@ -25,6 +25,16 @@ class UsersRepository implements IUsersRepository {
 
     return toFindByEmail;
   }
+
+  public async findById(id: number): Promise<User | null> {
+    const toFindById = await client.user.findUnique({
+      where: {
+        id,
+      },
+    });
+
+    return toFindById;
+  }
 }
 
 export { UsersRepository };
