@@ -1,4 +1,4 @@
-import { Server } from './server';
+import { Server } from './shared/infra/http/server';
 
 const port = Number(process.env.NODE_ENV) || 3333;
 
