@@ -5,7 +5,7 @@ import { ICreateUserDTO } from '../../dtos/ICreateUserDTO';
 import { IUsersRepository } from '../../repositories/IUsersRepository';
 
 class UsersRepository implements IUsersRepository {
-  public async save({ name, email }: ICreateUserDTO): Promise<User> {
+  public async create({ name, email }: ICreateUserDTO): Promise<User> {
     const user = await client.user.create({
       data: {
         name,

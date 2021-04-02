@@ -19,7 +19,7 @@ class CreateUserUseCase implements IUseCase<ICreateUserDTO, Promise<User>> {
       throw new AppError(`Email ${email} already in use`, 402);
     }
 
-    const user = await this.usersRepository.save({ name, email });
+    const user = await this.usersRepository.create({ name, email });
 
     return user;
   }
