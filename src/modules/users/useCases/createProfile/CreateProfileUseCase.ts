@@ -20,7 +20,11 @@ class CreateProfileUseCase
     this.usersRepository = usersRepository;
   }
 
-  public async execute({ bio, userId }: ICreateProfileDTO): Promise<Profile> {
+  public async execute({
+    bio,
+    birthday,
+    userId,
+  }: ICreateProfileDTO): Promise<Profile> {
     const doesUserExists = await this.usersRepository.findById(userId);
 
     if (!doesUserExists) {
@@ -37,6 +41,7 @@ class CreateProfileUseCase
 
     const profile = await this.profilesRepository.create({
       bio,
+      birthday,
       userId,
     });
 

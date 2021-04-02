@@ -5,10 +5,15 @@ import { ICreateProfileDTO } from '../../dtos/ICreateProfileDTO';
 import { IProfilesRepository } from '../../repositories/IProfilesRepository';
 
 class ProfilesRepository implements IProfilesRepository {
-  public async create({ bio, userId }: ICreateProfileDTO): Promise<Profile> {
+  public async create({
+    bio,
+    birthday,
+    userId,
+  }: ICreateProfileDTO): Promise<Profile> {
     const profile = await client.profile.create({
       data: {
         bio,
+        birthday,
         userId,
       },
     });

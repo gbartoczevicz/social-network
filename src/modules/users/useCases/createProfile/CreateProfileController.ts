@@ -14,7 +14,9 @@ class CreateProfileController {
   public async execute(request: Request, response: Response): Promise<unknown> {
     const toCreateProfile = request.body as ICreateProfileDTO;
 
-    console.log({ toCreateProfile });
+    const formattedDate = `${String(toCreateProfile.birthday)} 00:00`;
+
+    toCreateProfile.birthday = new Date(formattedDate);
 
     try {
       const profile = await this.useCase.execute(toCreateProfile);
