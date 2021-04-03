@@ -4,7 +4,7 @@ function checkUserIdInHeaders(
   request: Request,
   response: Response,
   next: NextFunction
-): Response<any> | void {
+): Response | void {
   const { user_id } = request.headers;
 
   if (!user_id) {
