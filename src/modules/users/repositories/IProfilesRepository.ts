@@ -1,10 +1,11 @@
 import { Profile } from '.prisma/client';
 
 import { ICreateProfileDTO } from '../dtos/ICreateProfileDTO';
+import { IGetProfileByUserIdDTO } from '../dtos/IGetProfileDTO';
 import { IUpdateProfileDTO } from '../dtos/IUpdateProfileDTO';
 
 export interface IProfilesRepository {
-  create(profile: ICreateProfileDTO): Promise<Profile>;
-  save(profile: IUpdateProfileDTO): Promise<Profile>;
-  findByUserId(userId: number): Promise<Profile | null>;
+  create(data: ICreateProfileDTO): Promise<Profile>;
+  save(data: IUpdateProfileDTO): Promise<Profile>;
+  findByUserId(data: IGetProfileByUserIdDTO): Promise<Profile | null>;
 }

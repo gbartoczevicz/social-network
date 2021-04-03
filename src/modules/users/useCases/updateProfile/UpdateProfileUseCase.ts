@@ -29,7 +29,9 @@ class UpdateProfileUseCase
       throw new AppError(`User #${userId} not found`);
     }
 
-    let toUpdateProfile = await this.profilesRepository.findByUserId(userId);
+    let toUpdateProfile = await this.profilesRepository.findByUserId({
+      userId,
+    });
 
     if (!toUpdateProfile) {
       throw new AppError(`Profile does not exists for User #${userId}`);

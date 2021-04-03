@@ -2,21 +2,14 @@ import { Profile } from '.prisma/client';
 
 import { client } from '../../../../shared/infra/prisma';
 import { ICreateProfileDTO } from '../../dtos/ICreateProfileDTO';
+import { IGetProfileByUserIdDTO } from '../../dtos/IGetProfileDTO';
 import { IUpdateProfileDTO } from '../../dtos/IUpdateProfileDTO';
 import { IProfilesRepository } from '../../repositories/IProfilesRepository';
 
 class ProfilesRepository implements IProfilesRepository {
-  public async create({
-    bio,
-    birthday,
-    userId,
-  }: ICreateProfileDTO): Promise<Profile> {
+  public async create(data: ICreateProfileDTO): Promise<Profile> {
     const profile = await client.profile.create({
-      data: {
-        bio,
-        birthday,
-        userId,
-      },
+      data,
     });
 
     return profile;
@@ -31,7 +24,9 @@ class ProfilesRepository implements IProfilesRepository {
     return profile;
   }
 
-  public async findByUserId(userId: number): Promise<Profile | null> {
+  public async findByUserId({
+    userId,
+  }: IGetProfileByUserIdDTO): Promise<Profile | null> {
     const toFindByUserId = await client.profile.findUnique({
       where: { userId },
     });

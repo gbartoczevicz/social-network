@@ -32,7 +32,7 @@ class CreateProfileUseCase
     }
 
     const doesUserAlreadyHasAProfile = await this.profilesRepository.findByUserId(
-      userId
+      { userId }
     );
 
     if (doesUserAlreadyHasAProfile) {
