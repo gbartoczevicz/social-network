@@ -3,5 +3,6 @@ import { Post } from '.prisma/client';
 import { ICreatePostDTO } from '../dtos/ICreatePostDTO';
 
 export interface IPostsRepository {
-  create(post: ICreatePostDTO): Promise<Post>;
+  create(data: ICreatePostDTO): Promise<Post>;
+  findAllByAuthorId(authorId: number): Promise<Post[]>;
 }
