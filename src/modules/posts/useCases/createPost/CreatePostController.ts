@@ -12,7 +12,12 @@ class CreatePostController {
   }
 
   public async execute(request: Request, response: Response): Promise<unknown> {
-    const toCreatePost = request.body as ICreatePostDTO;
+    const { id: userId } = request.user;
+
+    const toCreatePost: ICreatePostDTO = {
+      ...request.body,
+      authorId: userId,
+    };
 
     try {
       const post = await this.useCase.execute(toCreatePost);

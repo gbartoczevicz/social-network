@@ -12,10 +12,10 @@ class GetPostsFromUserController {
   }
 
   public async execute(request: Request, response: Response): Promise<unknown> {
-    const { author_id } = request.headers;
+    const { id } = request.user;
 
     const toFindPostsByAuthorId: IFindPostsByAuthorIdDTO = {
-      authorId: Number(author_id),
+      authorId: Number(id),
     };
 
     try {
