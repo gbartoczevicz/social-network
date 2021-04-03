@@ -2,6 +2,8 @@ import { Post } from '.prisma/client';
 
 import { client } from '../../../../shared/infra/prisma';
 import { ICreatePostDTO } from '../../dtos/ICreatePostDTO';
+import { IFindPostByIdDTO } from '../../dtos/IFindPostByIdDTO';
+import { IFindPostsByAuthorIdDTO } from '../../dtos/IFindPostsByAuthorIdDTO';
 import { IUpdatePostDTO } from '../../dtos/IUpdatePostDTO';
 import { IPostsRepository } from '../../repositories/IPostsRepository';
 
@@ -23,7 +25,7 @@ class PostsRepository implements IPostsRepository {
     return post;
   }
 
-  public async findById(id: number): Promise<Post | null> {
+  public async findById({ id }: IFindPostByIdDTO): Promise<Post | null> {
     const toFindPost = await client.post.findUnique({
       where: { id },
     });
@@ -31,7 +33,9 @@ class PostsRepository implements IPostsRepository {
     return toFindPost;
   }
 
-  public async findAllByAuthorId(authorId: number): Promise<Post[]> {
+  public async findAllByAuthorId({
+    authorId,
+  }: IFindPostsByAuthorIdDTO): Promise<Post[]> {
     const posts = await client.post.findMany({
       where: { authorId },
     });

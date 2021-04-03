@@ -29,7 +29,7 @@ class GetPostsFromUserUseCase
       throw new AppError(`Author ${authorId} does not exists`);
     }
 
-    const posts = await this.postsRepository.findAllByAuthorId(authorId);
+    const posts = await this.postsRepository.findAllByAuthorId({ authorId });
 
     return posts;
   }

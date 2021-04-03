@@ -32,7 +32,7 @@ class UpdatePostUseCase implements IUseCase<IUpdatePostDTO, Promise<Post>> {
 
     const { id } = postData;
 
-    let toUpdatePost = await this.postsRepository.findById(id);
+    let toUpdatePost = await this.postsRepository.findById({ id });
 
     if (!toUpdatePost) {
       throw new AppError(`Post ${id} does not exists`);
