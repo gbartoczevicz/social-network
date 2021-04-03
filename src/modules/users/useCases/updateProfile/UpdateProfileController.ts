@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 
 import { AppError } from '../../../../shared/logic/AppError';
-import { IIncomingProfileToUpdateDTO } from '../../dtos/IUpdateProfileDTO';
+import { IUpdateProfileDTO } from '../../dtos/IUpdateProfileDTO';
 import { UpdateProfileUseCase } from './UpdateProfileUseCase';
 
 class UpdateProfileController {
@@ -24,7 +24,7 @@ class UpdateProfileController {
       formattedDate = new Date(`${String(birthday)} 00:00`);
     }
 
-    const toUpdateProfile: IIncomingProfileToUpdateDTO = {
+    const toUpdateProfile: IUpdateProfileDTO = {
       ...request.body,
       birthday: formattedDate,
       userId: id,

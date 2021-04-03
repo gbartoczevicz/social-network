@@ -24,7 +24,7 @@ class ProfilesRepository implements IProfilesRepository {
 
   public async save(data: IUpdateProfileDTO): Promise<Profile> {
     const profile = await client.profile.update({
-      where: { id: data.id },
+      where: { userId: data.userId },
       data,
     });
 

@@ -2,12 +2,12 @@ import { Profile } from '.prisma/client';
 
 import { AppError } from '../../../../shared/logic/AppError';
 import { IUseCase } from '../../../../shared/modules/IUseCase';
-import { IIncomingProfileToUpdateDTO } from '../../dtos/IUpdateProfileDTO';
+import { IUpdateProfileDTO } from '../../dtos/IUpdateProfileDTO';
 import { IProfilesRepository } from '../../repositories/IProfilesRepository';
 import { IUsersRepository } from '../../repositories/IUsersRepository';
 
 class UpdateProfileUseCase
-  implements IUseCase<IIncomingProfileToUpdateDTO, Promise<Profile>> {
+  implements IUseCase<IUpdateProfileDTO, Promise<Profile>> {
   private profilesRepository: IProfilesRepository;
 
   private usersRepository: IUsersRepository;
@@ -20,9 +20,7 @@ class UpdateProfileUseCase
     this.usersRepository = usersRepository;
   }
 
-  public async execute(
-    profileData: IIncomingProfileToUpdateDTO
-  ): Promise<Profile> {
+  public async execute(profileData: IUpdateProfileDTO): Promise<Profile> {
     const { userId } = profileData;
 
     const doesUserExists = await this.usersRepository.findById(userId);
@@ -37,10 +35,7 @@ class UpdateProfileUseCase
       throw new AppError(`Profile does not exists for User #${userId}`);
     }
 
-    toUpdateProfile = await this.profilesRepository.save({
-      ...profileData,
-      id: toUpdateProfile.id,
-    });
+    toUpdateProfile = await this.profilesRepository.save(profileData);
 
     return toUpdateProfile;
   }
