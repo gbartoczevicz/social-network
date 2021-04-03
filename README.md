@@ -2,8 +2,6 @@
 
 Pequeno projeto da faculdade demonstrando as funcionalidades básicas de um ORM (Prisma)
 
-***
-
 ## Instalação
 
 Tenha uma versão recente do NodeJS (>= v14.16.0) com o package manager Yarn ou NPM.
