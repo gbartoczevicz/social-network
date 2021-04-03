@@ -2,6 +2,7 @@ import { User } from '.prisma/client';
 
 import { client } from '../../../../shared/infra/prisma';
 import { ICreateUserDTO } from '../../dtos/ICreateUserDTO';
+import { IUpdateUserDTO } from '../../dtos/IUpdateUserDTO';
 import { IUsersRepository } from '../../repositories/IUsersRepository';
 
 class UsersRepository implements IUsersRepository {
@@ -11,6 +12,17 @@ class UsersRepository implements IUsersRepository {
         name,
         email,
       },
+    });
+
+    return user;
+  }
+
+  public async save(data: IUpdateUserDTO): Promise<User> {
+    const user = await client.user.update({
+      where: {
+        id: data.id,
+      },
+      data,
     });
 
     return user;
