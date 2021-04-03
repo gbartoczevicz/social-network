@@ -22,7 +22,9 @@ class CreatePostUseCase implements IUseCase<ICreatePostDTO, Promise<Post>> {
   public async execute(postData: ICreatePostDTO): Promise<Post> {
     const { authorId } = postData;
 
-    const doesUserExists = await this.usersRepository.findById(authorId);
+    const doesUserExists = await this.usersRepository.findById({
+      id: authorId,
+    });
 
     if (!doesUserExists) {
       throw new AppError('User does not exists');

@@ -21,7 +21,9 @@ class GetPostsFromUserUseCase
   }
 
   public async execute({ authorId }: IFindPostsByAuthorIdDTO): Promise<Post[]> {
-    const doesAuthorExists = await this.usersRepository.findById(authorId);
+    const doesAuthorExists = await this.usersRepository.findById({
+      id: authorId,
+    });
 
     if (!doesAuthorExists) {
       throw new AppError(`Author ${authorId} does not exists`);

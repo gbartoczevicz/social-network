@@ -13,7 +13,7 @@ class CreateUserUseCase implements IUseCase<ICreateUserDTO, Promise<User>> {
   }
 
   public async execute({ name, email }: ICreateUserDTO): Promise<User> {
-    const doesUserExists = await this.usersRepository.findByEmail(email);
+    const doesUserExists = await this.usersRepository.findByEmail({ email });
 
     if (doesUserExists) {
       throw new AppError(`Email ${email} already in use`, 402);

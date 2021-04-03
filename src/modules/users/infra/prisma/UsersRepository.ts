@@ -2,16 +2,14 @@ import { User } from '.prisma/client';
 
 import { client } from '../../../../shared/infra/prisma';
 import { ICreateUserDTO } from '../../dtos/ICreateUserDTO';
+import { IGetUserByEmailDTO, IGetUserByIdDTO } from '../../dtos/IGetUserDTO';
 import { IUpdateUserDTO } from '../../dtos/IUpdateUserDTO';
 import { IUsersRepository } from '../../repositories/IUsersRepository';
 
 class UsersRepository implements IUsersRepository {
-  public async create({ name, email }: ICreateUserDTO): Promise<User> {
+  public async create(data: ICreateUserDTO): Promise<User> {
     const user = await client.user.create({
-      data: {
-        name,
-        email,
-      },
+      data,
     });
 
     return user;
@@ -28,7 +26,9 @@ class UsersRepository implements IUsersRepository {
     return user;
   }
 
-  public async findByEmail(email: string): Promise<User | null> {
+  public async findByEmail({
+    email,
+  }: IGetUserByEmailDTO): Promise<User | null> {
     const toFindByEmail = await client.user.findUnique({
       where: {
         email,
@@ -38,7 +38,7 @@ class UsersRepository implements IUsersRepository {
     return toFindByEmail;
   }
 
-  public async findById(id: number): Promise<User | null> {
+  public async findById({ id }: IGetUserByIdDTO): Promise<User | null> {
     const toFindById = await client.user.findUnique({
       where: {
         id,

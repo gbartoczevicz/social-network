@@ -22,7 +22,9 @@ class UpdatePostUseCase implements IUseCase<IUpdatePostDTO, Promise<Post>> {
   public async execute(postData: IUpdatePostDTO): Promise<Post> {
     const { authorId } = postData;
 
-    const doesAuthorExists = await this.usersRepository.findById(authorId);
+    const doesAuthorExists = await this.usersRepository.findById({
+      id: authorId,
+    });
 
     if (!doesAuthorExists) {
       throw new AppError(`Author ${authorId} does not exists`);

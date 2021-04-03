@@ -23,7 +23,7 @@ class UpdateProfileUseCase
   public async execute(profileData: IUpdateProfileDTO): Promise<Profile> {
     const { userId } = profileData;
 
-    const doesUserExists = await this.usersRepository.findById(userId);
+    const doesUserExists = await this.usersRepository.findById({ id: userId });
 
     if (!doesUserExists) {
       throw new AppError(`User #${userId} not found`);

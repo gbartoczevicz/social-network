@@ -25,7 +25,7 @@ class CreateProfileUseCase
     birthday,
     userId,
   }: ICreateProfileDTO): Promise<Profile> {
-    const doesUserExists = await this.usersRepository.findById(userId);
+    const doesUserExists = await this.usersRepository.findById({ id: userId });
 
     if (!doesUserExists) {
       throw new AppError(`User #${userId} not found`);

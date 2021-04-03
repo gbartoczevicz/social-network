@@ -15,13 +15,13 @@ class UpdateUserUseCase implements IUseCase<IUpdateUserDTO, User> {
   public async execute(userData: IUpdateUserDTO): Promise<User> {
     const { id, email } = userData;
 
-    const userWithSameEmail = await this.usersRepository.findByEmail(email);
+    const userWithSameEmail = await this.usersRepository.findByEmail({ email });
 
     if (userWithSameEmail && userWithSameEmail.id !== id) {
       throw new AppError(`Email ${email} already in use`);
     }
 
-    let userToUpdate = await this.usersRepository.findById(id);
+    let userToUpdate = await this.usersRepository.findById({ id });
 
     if (!userToUpdate) {
       throw new AppError(`User ${id} not found`);
