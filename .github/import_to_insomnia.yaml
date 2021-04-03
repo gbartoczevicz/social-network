@@ -1,0 +1,362 @@
+_type: export
+__export_format: 4
+__export_date: 2021-04-03T18:00:48.521Z
+__export_source: insomnia.desktop.app:v2021.2.1
+resources:
+  - _id: req_838e901601b04e39ae64362b92775b87
+    parentId: fld_e052d4f019c0442a945b8755270fb9da
+    modified: 1617463844392
+    created: 1617389998888
+    url: "{{ _.base_url }}/users"
+    name: Create User
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "Nome do usuário",
+        	"email": "usuario+01@email.com"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_3c834cfbbb3e411db803347c32981715
+    authentication: {}
+    metaSortKey: -1617389998888
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_e052d4f019c0442a945b8755270fb9da
+    parentId: wrk_f270553c23d449fabb7190d31d8d083c
+    modified: 1617389990977
+    created: 1617389990977
+    name: Users
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1617389990977
+    _type: request_group
+  - _id: wrk_f270553c23d449fabb7190d31d8d083c
+    parentId: null
+    modified: 1617389972208
+    created: 1617389972208
+    name: Conceitos ORM - Faculdade
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_4908fe396f354761a76d0da0f6166e0d
+    parentId: fld_e052d4f019c0442a945b8755270fb9da
+    modified: 1617465558366
+    created: 1617465530337
+    url: "{{ _.base_url }}/users"
+    name: Get User
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: user_id
+        value: "4"
+        description: ""
+        id: pair_d213fd251c6b4f44a8c501f2b641d4b0
+        disabled: false
+    authentication: {}
+    metaSortKey: -1617283793370.75
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_2cc8458aea4e4b679617207772c8cb99
+    parentId: fld_e052d4f019c0442a945b8755270fb9da
+    modified: 1617468978538
+    created: 1617462706216
+    url: "{{ _.base_url }}/users"
+    name: Update User
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "Usuário Atualizado",
+        	"email": "usuario+emailreserva@email.com"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_3c834cfbbb3e411db803347c32981715
+      - name: user_id
+        value: "5"
+        description: ""
+        id: pair_3d89df3d25404a978259410a3ff27ded
+    authentication: {}
+    metaSortKey: -1617257241991.4375
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_2a4b631f4db94cde9943ac398baffd68
+    parentId: fld_e052d4f019c0442a945b8755270fb9da
+    modified: 1617463874138
+    created: 1617393481208
+    url: "{{ _.base_url }}/profiles"
+    name: Create Profile
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"bio": "Teste de bio :)"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_3c834cfbbb3e411db803347c32981715
+      - name: user_id
+        value: "5"
+        description: ""
+        id: pair_3d89df3d25404a978259410a3ff27ded
+    authentication: {}
+    metaSortKey: -1617177587853.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_a607401a4efe46d59231882b3b2a7955
+    parentId: fld_e052d4f019c0442a945b8755270fb9da
+    modified: 1617469161036
+    created: 1617468970256
+    url: "{{ _.base_url }}/profiles"
+    name: Get Profile
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: user_id
+        value: "6"
+        description: ""
+        id: pair_d213fd251c6b4f44a8c501f2b641d4b0
+        disabled: false
+    authentication: {}
+    metaSortKey: -1617151036474.1875
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_5ffa22c18a8d4c2ebf31566df040a18a
+    parentId: fld_e052d4f019c0442a945b8755270fb9da
+    modified: 1617463908852
+    created: 1617459504432
+    url: "{{ _.base_url }}/profiles"
+    name: Update Profile
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"bio": "Bio atualizada",
+        	"birthday": "2001-11-05"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_3c834cfbbb3e411db803347c32981715
+      - name: user_id
+        value: "1"
+        description: ""
+        id: pair_3d89df3d25404a978259410a3ff27ded
+    authentication: {}
+    metaSortKey: -1617124485094.875
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_27ba00d4cb1b4c93ab14e0836ca5de04
+    parentId: fld_7bdac9f287d6486793c9adc54e6933a4
+    modified: 1617463944071
+    created: 1617403020307
+    url: "{{ _.base_url }}/posts"
+    name: Create Post
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"title": "Um post",
+        	"content": "Esse post é só um teste",
+        	"published": true
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_3c834cfbbb3e411db803347c32981715
+      - name: user_id
+        value: "2"
+        description: ""
+        id: pair_41359cbfdea649df8444dad3788ce45c
+        disabled: false
+    authentication: {}
+    metaSortKey: -1617177587853.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_7bdac9f287d6486793c9adc54e6933a4
+    parentId: wrk_f270553c23d449fabb7190d31d8d083c
+    modified: 1617403020280
+    created: 1617403020280
+    name: Posts
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1617177579470
+    _type: request_group
+  - _id: req_716f7962e0054b999454b7b4a8116529
+    parentId: fld_7bdac9f287d6486793c9adc54e6933a4
+    modified: 1617453392517
+    created: 1617411505555
+    url: "{{ _.base_url }}/posts"
+    name: List Posts
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: user_id
+        value: "2"
+        description: ""
+        id: pair_0bf632b0f05a4316b16801320aa50466
+    authentication: {}
+    metaSortKey: -1617071382336.25
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_ade003099e3649eea92cb399178040aa
+    parentId: fld_7bdac9f287d6486793c9adc54e6933a4
+    modified: 1617472580682
+    created: 1617472554538
+    url: "{{ _.base_url }}/posts/1111"
+    name: Get Post
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1617044830956.9375
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_fa05d24c2ad2407eb3caa817fb9b24e2
+    parentId: fld_7bdac9f287d6486793c9adc54e6933a4
+    modified: 1617463969485
+    created: 1617457686241
+    url: "{{ _.base_url }}/posts/5"
+    name: Update Post
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+            "title": "Titulo tá atualizado",
+        		"content": null,
+            "published": false
+        }
+    parameters: []
+    headers:
+      - name: user_id
+        value: "2"
+        description: ""
+        id: pair_0bf632b0f05a4316b16801320aa50466
+      - name: Content-Type
+        value: application/json
+        id: pair_360cb2ca47c2431a85ced9913ecd28fc
+    authentication: {}
+    metaSortKey: -1617018279577.625
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_7140ec1c5511e90dc851b4e7ee55ed6628e7a15b
+    parentId: wrk_f270553c23d449fabb7190d31d8d083c
+    modified: 1617389986386
+    created: 1617389972450
+    name: Base Environment
+    data:
+      base_url: http://localhost:3333
+    dataPropertyOrder:
+      "&":
+        - base_url
+    color: null
+    isPrivate: false
+    metaSortKey: 1617389972450
+    _type: environment
+  - _id: jar_7140ec1c5511e90dc851b4e7ee55ed6628e7a15b
+    parentId: wrk_f270553c23d449fabb7190d31d8d083c
+    modified: 1617389972458
+    created: 1617389972458
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_00fa7d81c1534643bf6803e3abb0139b
+    parentId: wrk_f270553c23d449fabb7190d31d8d083c
+    modified: 1617389972221
+    created: 1617389972221
+    fileName: Conceitos ORM - Faculdade
+    contents: ""
+    contentType: yaml
+    _type: api_spec
