@@ -12,7 +12,7 @@ $ docker-compose up -d # (Opcional) Para rodar o container do banco de dados em 
 $ yarn                 # npm install
 ```
 
-É necessário migrar o schema inicial do projeto para o banco de dados antes de iniciar a aplicação, criando o arquivo .env seguindo as credenciais do arquivo de exemplo [.env.example](..env.example). Assim o Prisma vai usar elas para a conexão com o banco de dados. 
+É necessário migrar o schema inicial do projeto para o banco de dados antes de iniciar a aplicação, criando o arquivo .env seguindo as credenciais do arquivo de exemplo [.env.example](.env.example). Assim o Prisma vai usar elas para a conexão com o banco de dados. 
 
 ```bash
 $ yarn prisma migrate dev # npx prisma migrate dev
