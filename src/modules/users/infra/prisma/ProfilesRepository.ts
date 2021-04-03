@@ -2,6 +2,7 @@ import { Profile } from '.prisma/client';
 
 import { client } from '../../../../shared/infra/prisma';
 import { ICreateProfileDTO } from '../../dtos/ICreateProfileDTO';
+import { IUpdateProfileDTO } from '../../dtos/IUpdateProfileDTO';
 import { IProfilesRepository } from '../../repositories/IProfilesRepository';
 
 class ProfilesRepository implements IProfilesRepository {
@@ -16,6 +17,15 @@ class ProfilesRepository implements IProfilesRepository {
         birthday,
         userId,
       },
+    });
+
+    return profile;
+  }
+
+  public async save(data: IUpdateProfileDTO): Promise<Profile> {
+    const profile = await client.profile.update({
+      where: { id: data.id },
+      data,
     });
 
     return profile;
